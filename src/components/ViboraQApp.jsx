@@ -11,9 +11,9 @@ import Toast from './common/Toast.jsx';
 import { AppProvider } from '../context/AppContext.jsx';
 
 export default function ViboraQApp() {
-  return (
-    <AppProvider>
-      <AmbientShell>
+  return <AppProvider>
+    <AmbientShell>
+      <div className="vq-mobile-app">
         <LandingPage />
         <Dashboard />
         <SubFeatureModal />
@@ -22,7 +22,7 @@ export default function ViboraQApp() {
         <EditProfileModal />
         <IcebreakerModal />
         <Toast />
-      </AmbientShell>
-    </AppProvider>
-  );
+      </div>
+    </AmbientShell>
+  </AppProvider>;
 }

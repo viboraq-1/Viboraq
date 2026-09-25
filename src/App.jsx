@@ -9,4 +9,5 @@ import './styles/phase8.css';
 import './styles/phase9.css';
 import './styles/phase11.css';
 import './styles/phase13.css';
-export default function App() { return <ViboraQApp />; }
+import './styles/phase14.css';
+export default function App(){return <ViboraQApp/>}
