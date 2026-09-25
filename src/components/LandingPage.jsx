@@ -1,102 +1,74 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext.jsx';
 
-const portraits = [
-  { name: 'Areeba', age: 23, city: 'Lahore', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=90&w=1200&auto=format&fit=crop' },
-  { name: 'Maham', age: 24, city: 'Islamabad', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=90&w=1200&auto=format&fit=crop' },
-  { name: 'Hamza', age: 26, city: 'Lahore', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=90&w=1200&auto=format&fit=crop' },
+const photos = {
+  hero: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=88&w=1500&auto=format&fit=crop',
+  woman: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=88&w=1100&auto=format&fit=crop',
+  man: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=88&w=1100&auto=format&fit=crop',
+  couple: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=88&w=1400&auto=format&fit=crop',
+  friends: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=88&w=1200&auto=format&fit=crop',
+};
+
+const profiles = [
+  { name: 'Areeba', age: 23, city: 'Lahore', vibe: 'Coffee · Art · Travel', image: photos.woman },
+  { name: 'Hamza', age: 26, city: 'Islamabad', vibe: 'Music · Fitness · Tech', image: photos.man },
+  { name: 'Maham', age: 24, city: 'Karachi', vibe: 'Books · Food · Travel', image: photos.couple },
 ];
 
 const reviews = [
-  ['A.', 'Lahore', '“It feels less like scrolling and more like discovering a person. The profile details make starting a conversation much easier.”'],
-  ['M.', 'Islamabad', '“The visual experience feels calm and premium. I can take my time and actually see whether someone shares my interests.”'],
-  ['H.', 'Karachi', '“The little conversation prompts are a great touch. They make the first hello feel natural instead of awkward.”'],
+  ['A', 'Lahore', 'The profile-first experience makes meeting someone feel much more intentional.'],
+  ['M', 'Islamabad', 'It feels calm, polished and personal instead of another noisy social feed.'],
+  ['H', 'Karachi', 'Shared interests give you an easy reason to say hello.'],
 ];
 
 export default function LandingPage() {
   const { session, authReady, openModal } = useApp();
-  const [reviewIndex, setReviewIndex] = useState(0);
+  const [review, setReview] = useState(0);
   if (authReady && session) return null;
 
   const join = () => openModal('onboarding', { reset: true });
-  const signIn = () => openModal('login');
+  const login = () => openModal('login');
 
   return (
-    <main className="v16-landing">
-      <div className="v16-noise" aria-hidden="true" />
-      <div className="v16-aurora v16-aurora-one" aria-hidden="true" />
-      <div className="v16-aurora v16-aurora-two" aria-hidden="true" />
-      <div className="v16-aurora v16-aurora-three" aria-hidden="true" />
-
-      <header className="v16-nav">
-        <button className="v16-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="ViboraQ home">
-          <span className="v16-logo-mark">✦</span><span>ViboraQ</span><small>PAKISTAN</small>
+    <main className="vq17-landing">
+      <div className="vq17-backdrop" aria-hidden="true" />
+      <header className="vq17-nav">
+        <button className="vq17-brand" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <span className="vq17-brand-mark">♡</span><span>ViboraQ</span><small>PAKISTAN</small>
         </button>
-        <nav className="v16-desktop-links" aria-label="Main navigation">
-          <a href="#discover">Discover</a><a href="#why">Why ViboraQ</a><a href="#stories">Stories</a>
-        </nav>
-        <div className="v16-nav-actions">
-          <button className="v16-signin" onClick={signIn}>Sign in</button>
-          <button className="v16-join" onClick={join}>Join free <span>↗</span></button>
-        </div>
+        <nav><a href="#discover">Discover</a><a href="#why">Why us</a><a href="#stories">Stories</a></nav>
+        <div className="vq17-nav-actions"><button className="vq17-login" onClick={login}>Sign in</button><button className="vq17-join" onClick={join}>Join free <b>↗</b></button></div>
       </header>
 
-      <section className="v16-hero">
-        <div className="v16-hero-copy">
-          <div className="v16-eyebrow"><span>♡</span> A MORE THOUGHTFUL WAY TO MEET</div>
-          <h1>Meet someone<br /><em>worth staying curious about.</em></h1>
-          <p>ViboraQ brings people together through personality, shared interests and real conversation — designed with a little more warmth and a lot more intention.</p>
-          <div className="v16-hero-actions">
-            <button className="v16-primary" onClick={join}>Create your profile <span>→</span></button>
-            <button className="v16-secondary" onClick={signIn}><span className="v16-play">↗</span> I already have an account</button>
-          </div>
-          <div className="v16-proof-row"><span>✦ Profile-first</span><span>♡ Private by design</span><span>🇵🇰 Across Pakistan</span></div>
-          <div className="v16-microcopy"><i /> No payment required to join <b>·</b> Create your profile in minutes</div>
+      <section className="vq17-hero">
+        <div className="vq17-hero-copy">
+          <div className="vq17-kicker"><i /> MADE FOR MEANINGFUL CONNECTIONS IN PAKISTAN</div>
+          <h1>Some connections<br /><em>feel like they were meant to happen.</em></h1>
+          <p>Meet people through personality, shared interests and real conversation. ViboraQ is a warmer, more thoughtful way to discover someone who feels right.</p>
+          <div className="vq17-actions"><button className="vq17-primary" onClick={join}>Create your profile <span>→</span></button><button className="vq17-secondary" onClick={login}>I already have an account</button></div>
+          <div className="vq17-trust"><span>♡ Thoughtful profiles</span><span>✦ Private by design</span><span>● Across Pakistan</span></div>
         </div>
-
-        <div className="v16-hero-visual" aria-label="ViboraQ connection preview">
-          <div className="v16-glow-ring ring-a" />
-          <div className="v16-glow-ring ring-b" />
-          <div className="v16-main-portrait" style={{ backgroundImage: `url(${portraits[0].image})` }}>
-            <div className="v16-photo-shade" />
-            <div className="v16-photo-caption"><div><b>{portraits[0].name}, {portraits[0].age}</b><small>📍 {portraits[0].city} · Coffee · Art</small></div><span>●</span></div>
-          </div>
-          <div className="v16-secondary-portrait" style={{ backgroundImage: `url(${portraits[2].image})` }}><span>✦ Verified</span></div>
-          <div className="v16-match-card"><span className="v16-match-heart">♡</span><div><small>YOUR VIBE MATCH</small><b>3 shared interests</b><em>Music · Travel · Coffee</em></div><strong>94%</strong></div>
-          <div className="v16-float-note"><span>✦</span><div><b>Someone is nearby</b><small>2 new profiles in Lahore</small></div></div>
+        <div className="vq17-hero-art">
+          <div className="vq17-photo-main" style={{ backgroundImage: `url(${photos.hero})` }}><div className="vq17-photo-gradient" /><div className="vq17-photo-caption"><b>A connection worth discovering</b><small>Personality · Interests · Conversation</small></div></div>
+          <div className="vq17-photo-small" style={{ backgroundImage: `url(${photos.woman})` }}><span>♡ 94% vibe</span></div>
+          <div className="vq17-match"><strong>✦</strong><div><small>VIBE MATCH</small><b>3 shared interests</b><em>Coffee · Travel · Music</em></div></div>
+          <div className="vq17-online"><i /> <div><b>People are discovering</b><small>new connections near you</small></div></div>
+          <div className="vq17-ring r1" /><div className="vq17-ring r2" />
         </div>
       </section>
 
-      <section className="v16-trust-strip"><div><strong>01</strong><span>Build a profile<br />with personality</span></div><div><strong>02</strong><span>Discover shared<br />interests</span></div><div><strong>03</strong><span>Start a better<br />conversation</span></div><button onClick={join}>Start discovering <span>→</span></button></section>
+      <section className="vq17-story-strip"><div><b>01</b><span>Show the real<br />you</span></div><div><b>02</b><span>Find shared<br />interests</span></div><div><b>03</b><span>Start something<br />natural</span></div><button onClick={join}>Begin your story <span>→</span></button></section>
 
-      <section id="why" className="v16-section v16-editorial">
-        <div className="v16-section-head"><span className="v16-label">WHY VIBORAQ</span><h2>Dating can feel<br /><em>beautiful again.</em></h2><p>Not another noisy feed. A calmer space where the details of a person matter as much as the first impression.</p></div>
-        <div className="v16-feature-grid">
-          <article className="v16-feature feature-large"><span>♡</span><h3>Personality before pressure</h3><p>Show your interests, city, vibe and what you actually enjoy — so people have something meaningful to connect over.</p><div className="feature-line"><b>01</b><i /></div></article>
-          <article className="v16-feature"><span>✦</span><h3>Better first hellos</h3><p>Shared interests create natural conversation starters instead of awkward blank screens.</p><div className="feature-line"><b>02</b><i /></div></article>
-          <article className="v16-feature"><span>⌁</span><h3>Private by design</h3><p>Your profile and account experience are built around control, clarity and respectful discovery.</p><div className="feature-line"><b>03</b><i /></div></article>
-        </div>
-      </section>
+      <section id="why" className="vq17-section"><header className="vq17-section-head"><span>WHY VIBORAQ</span><h2>Dating should feel<br /><em>beautiful, not exhausting.</em></h2><p>No endless noise. No pressure to perform. Just profiles with personality and better reasons to start a conversation.</p></header><div className="vq17-feature-grid"><article><span>♡</span><h3>Personality first</h3><p>Interests, city, vibe and little details help people see more than a photo.</p></article><article><span>✦</span><h3>Natural conversation</h3><p>Shared interests turn an empty chat box into an easy first hello.</p></article><article><span>⌁</span><h3>Privacy matters</h3><p>Account controls and respectful discovery are part of the experience from day one.</p></article></div></section>
 
-      <section id="discover" className="v16-section v16-discover">
-        <div className="v16-section-head v16-discover-head"><div><span className="v16-label">DISCOVER</span><h2>People with a<br /><em>similar vibe.</em></h2></div><button className="v16-outline" onClick={join}>Explore the vibe <span>→</span></button></div>
-        <div className="v16-discover-grid">
-          {portraits.map((p, i) => <article className={`v16-discover-card card-${i + 1}`} key={p.name}>
-            <div className="v16-discover-photo" style={{ backgroundImage: `url(${p.image})` }}><div className="v16-card-top"><span>● Online</span><button onClick={signIn}>♡</button></div><div className="v16-card-bottom"><div><b>{p.name}, {p.age}</b><small>📍 {p.city} · {i === 0 ? 'Coffee · Art' : i === 1 ? 'Books · Travel' : 'Gym · Music'}</small></div><span>✦</span></div></div>
-          </article>)}
-        </div>
-      </section>
+      <section id="discover" className="vq17-section vq17-discover"><header className="vq17-section-head left"><span>DISCOVER</span><h2>People with a<br /><em>similar vibe.</em></h2><p>Large, expressive profiles designed to feel good on a phone and beautiful on a desktop.</p></header><div className="vq17-profile-grid">{profiles.map((p) => <article key={p.name} className="vq17-profile-card"><div className="vq17-profile-photo" style={{ backgroundImage: `url(${p.image})` }}><span className="vq17-online-dot">● Online</span><button onClick={login}>♡</button><div><b>{p.name}, {p.age}</b><small>📍 {p.city} · {p.vibe}</small></div></div></article>)}</div></section>
 
-      <section id="stories" className="v16-section v16-stories">
-        <div className="v16-story-photo" style={{ backgroundImage: `url(${portraits[1].image})` }}><span>♡</span></div>
-        <div className="v16-story-copy"><span className="v16-label">COMMUNITY STORIES</span><h2>The right feeling<br /><em>starts with hello.</em></h2><div className="v16-review"><div className="v16-stars">★★★★★</div><p>{reviews[reviewIndex][2]}</p><div className="v16-review-person"><span>{reviews[reviewIndex][0]}</span><div><b>{reviews[reviewIndex][0]} · {reviews[reviewIndex][1]}</b><small>Community preview</small></div></div></div><div className="v16-review-controls">{reviews.map((_, i) => <button key={i} className={i === reviewIndex ? 'active' : ''} onClick={() => setReviewIndex(i)} aria-label={`Review ${i + 1}`} />)}</div><small className="v16-demo-note">Preview copy — replace with verified member stories at launch.</small></div>
-      </section>
+      <section id="stories" className="vq17-section vq17-review-section"><div className="vq17-review-photo" style={{ backgroundImage: `url(${photos.friends})` }} /><div className="vq17-review-copy"><span>COMMUNITY STORIES</span><h2>The right feeling<br /><em>starts with hello.</em></h2><div className="vq17-review-card"><b className="vq17-stars">★★★★★</b><p>“{reviews[review][2]}”</p><footer><span>{reviews[review][0]}</span><div><b>{reviews[review][0]} · {reviews[review][1]}</b><small>Community preview</small></div></footer></div><div className="vq17-dots">{reviews.map((_, i) => <button key={i} className={i === review ? 'active' : ''} onClick={() => setReview(i)} />)}</div><small className="vq17-note">Preview stories — replace with verified member reviews at launch.</small></div></section>
 
-      <section className="v16-how"><div className="v16-how-head"><span className="v16-label">HOW IT WORKS</span><h2>One good connection<br /><em>can change a day.</em></h2></div><div className="v16-how-grid"><article><b>01</b><span>♡</span><h3>Create your profile</h3><p>Tell people who you are, what you enjoy and what kind of connection you are looking for.</p></article><article><b>02</b><span>✦</span><h3>Find your people</h3><p>Discover profiles around Pakistan through interests, city and shared vibe.</p></article><article><b>03</b><span>→</span><h3>Start talking</h3><p>Turn a shared interest into a natural first message and see where it goes.</p></article></div></section>
+      <section className="vq17-how"><span>HOW IT WORKS</span><h2>Four simple steps to<br /><em>a better first hello.</em></h2><div className="vq17-steps"><article><b>01</b><span>♡</span><h3>Create your profile</h3><p>Build a profile that feels like you, not a generic form.</p></article><article><b>02</b><span>✦</span><h3>Discover your people</h3><p>Explore personalities, interests and cities across Pakistan.</p></article><article><b>03</b><span>→</span><h3>Find your reason to talk</h3><p>Shared interests make the first message easier.</p></article><article><b>04</b><span>♥</span><h3>See where it goes</h3><p>Take your time and build a genuine connection.</p></article></div></section>
 
-      <section className="v16-final"><div className="v16-final-orb" /><span className="v16-label">YOUR NEXT CHAPTER</span><h2>Someone worth meeting<br /><em>could be one hello away.</em></h2><p>Join ViboraQ and create a profile that feels like you.</p><div><button className="v16-primary" onClick={join}>Join ViboraQ free <span>→</span></button><button className="v16-secondary" onClick={signIn}>Sign in instead</button></div></section>
-
-      <footer className="v16-footer"><button className="v16-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}><span className="v16-logo-mark">✦</span><span>ViboraQ</span><small>PAKISTAN</small></button><p>Meaningful connections, thoughtfully designed for Pakistan.</p><button onClick={signIn}>Sign in</button></footer>
+      <section className="vq17-final"><div className="vq17-final-glow" /><span>YOUR NEXT CHAPTER</span><h2>Someone wonderful<br /><em>could be one hello away.</em></h2><p>Join ViboraQ free and make your first impression count.</p><div><button className="vq17-primary" onClick={join}>Join ViboraQ free <span>→</span></button><button className="vq17-secondary" onClick={login}>Sign in</button></div></section>
+      <footer className="vq17-footer"><button className="vq17-brand"><span className="vq17-brand-mark">♡</span><span>ViboraQ</span><small>PAKISTAN</small></button><p>Meaningful connections, thoughtfully designed.</p><button onClick={login}>Sign in</button></footer>
     </main>
   );
 }
