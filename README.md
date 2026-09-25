@@ -1,15 +1,18 @@
-# ViboraQ — Phase 15
+# ViboraQ React — Phase 16
 
-Adaptive product UI: desktop behaves like a polished full-width dating website; phones behave like a mobile-first dating app.
-
-## Run
-npm install
-npm run dev
+High-end romantic product redesign based on Phase 15.
 
 ## Design goals
-- Desktop: full-width cinematic landing page, centered content system, web-app dashboard, desktop auth dialog.
-- Tablet: adaptive two-column discovery and fluid sections.
-- Mobile: full-screen app shell, bottom navigation, touch-first controls and bottom-sheet auth.
-- Large displays: controlled max-width content so cards do not become oversized.
+- Desktop browser: premium full-width dating website experience.
+- Mobile browser: touch-first mobile dating app experience.
+- Landing page rebuilt with cinematic romantic visual hierarchy, large profile imagery, reviews, discovery preview, trust strip, how-it-works and strong CTAs.
+- Sign in rebuilt as a polished responsive auth experience with email/password, forgot password, Google OAuth, inline validation, loading states and create-account handoff.
+- Existing Supabase/auth/onboarding functionality remains connected.
 
-Original `legacy-original.html` is retained as a backup.
+## Run
+```bash
+npm install
+npm run dev
+```
+
+The original `legacy-original.html` is retained as a reference backup.

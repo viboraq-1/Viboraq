@@ -11,4 +11,5 @@ import './styles/phase11.css';
 import './styles/phase13.css';
 import './styles/phase14.css';
 import './styles/phase15.css';
+import './styles/phase16.css';
 export default function App(){return <ViboraQApp/>}
