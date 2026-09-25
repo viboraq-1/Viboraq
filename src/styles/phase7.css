@@ -1,0 +1,239 @@
+/* ViboraQ Phase 7 — dashboard correctness, fixed shell and responsive Explore */
+
+/* ---------- 1. Dashboard is a real viewport shell ---------- */
+.vq-dashboard,
+#app-dashboard-wrapper {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 100dvh;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
+#app-dashboard-wrapper {
+  display: flex !important;
+  flex-direction: column;
+  padding-bottom: 0 !important;
+}
+
+#app-dashboard-wrapper > header {
+  flex: 0 0 auto;
+  position: relative;
+  top: auto;
+  width: 100%;
+  z-index: 100;
+}
+
+#app-dashboard-wrapper .view-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 92px !important;
+}
+
+/* Header stays at the top because only view-content scrolls. */
+#app-dashboard-wrapper > header .brand,
+#app-dashboard-wrapper > header .btn-create-top {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- 2. Correct auth state on Profile ---------- */
+/* The old HTML has inline display styles. These selectors deliberately win over them. */
+.vq-dashboard[data-auth-state="authenticated"] #logged-out-view {
+  display: none !important;
+}
+
+.vq-dashboard[data-auth-state="authenticated"] #logged-in-view {
+  display: flex !important;
+}
+
+.vq-dashboard[data-auth-state="guest"] #logged-out-view {
+  display: flex !important;
+}
+
+.vq-dashboard[data-auth-state="guest"] #logged-in-view {
+  display: none !important;
+}
+
+/* Prevent guest-only login/register controls from ever leaking into an authenticated profile. */
+.vq-dashboard[data-auth-state="authenticated"] #logged-out-view,
+.vq-dashboard[data-auth-state="authenticated"] #logged-out-view * {
+  pointer-events: none !important;
+}
+
+/* ---------- 3. Explore: controlled card sizes instead of giant stretched cards ---------- */
+#page-explore {
+  width: 100%;
+  max-width: 1180px !important;
+  margin-inline: auto !important;
+  padding-inline: clamp(14px, 2.5vw, 28px);
+}
+
+#page-explore #live-count-badge {
+  margin: 18px 0 0 !important;
+}
+
+#page-explore .categories-bar {
+  padding-inline: 0 !important;
+  max-width: 100%;
+}
+
+#page-explore .profiles-grid {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px 0 110px !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
+  justify-content: center;
+  align-items: start;
+  gap: clamp(14px, 1.5vw, 22px);
+}
+
+#page-explore .profile-card {
+  width: 100%;
+  max-width: 320px;
+  justify-self: center;
+}
+
+#page-explore .card-img-box {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 0 !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+#page-explore .card-body {
+  padding: 13px;
+}
+
+#page-explore .card-name {
+  font-size: 15px;
+}
+
+#page-explore .card-city {
+  font-size: 11px;
+}
+
+#page-explore .micro-tag {
+  font-size: 9px;
+  padding: 3px 7px;
+}
+
+#page-explore .btn-connect {
+  padding: 9px 10px;
+}
+
+/* ---------- 4. No expensive blur on dashboard interactions ---------- */
+#app-dashboard-wrapper,
+#app-dashboard-wrapper header,
+#app-dashboard-wrapper .bottom-nav,
+#app-dashboard-wrapper .verified-pill,
+.vq-react-modal__backdrop,
+.vq-react-modal__panel {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Keep interactions immediate. */
+#app-dashboard-wrapper .btn-connect,
+#app-dashboard-wrapper .cat-chip,
+#app-dashboard-wrapper .nav-tab,
+#app-dashboard-wrapper .profile-card,
+#app-dashboard-wrapper .profile-card img,
+#app-dashboard-wrapper button {
+  transition-property: background-color, border-color, color, opacity, box-shadow, transform !important;
+  transition-duration: .08s !important;
+}
+
+/* No animated card movement while the user is trying to click/scroll. */
+#app-dashboard-wrapper .profile-card:hover {
+  transform: none !important;
+}
+#app-dashboard-wrapper .profile-card:hover img {
+  transform: none !important;
+}
+
+/* ---------- 5. Large displays ---------- */
+@media (min-width: 1600px) {
+  #page-explore { max-width: 1280px !important; }
+  #page-explore .profiles-grid { max-width: 1200px; grid-template-columns: repeat(auto-fit, minmax(260px, 340px)); }
+  #page-explore .profile-card { max-width: 340px; }
+}
+
+/* ---------- 6. Tablet ---------- */
+@media (max-width: 900px) {
+  #page-explore { max-width: 760px !important; }
+  #page-explore .profiles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #page-explore .profile-card { max-width: 100%; }
+}
+
+/* ---------- 7. Phone ---------- */
+@media (max-width: 600px) {
+  .vq-dashboard,
+  #app-dashboard-wrapper {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+
+  #app-dashboard-wrapper > header {
+    padding: 12px 14px !important;
+  }
+
+  #page-explore {
+    max-width: 100% !important;
+    padding-inline: 12px;
+  }
+
+  #page-explore .categories-bar {
+    margin-inline: 0 !important;
+  }
+
+  #page-explore .profiles-grid {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 14px !important;
+    padding-bottom: 96px !important;
+  }
+
+  #page-explore .profile-card {
+    max-width: 380px;
+    margin-inline: auto;
+  }
+
+  #page-explore .card-img-box {
+    aspect-ratio: 4 / 3;
+  }
+
+  #app-dashboard-wrapper .bottom-nav {
+    width: min(94vw, 440px);
+    bottom: max(8px, env(safe-area-inset-bottom));
+  }
+}
+
+/* ---------- 8. Very small phones ---------- */
+@media (max-width: 380px) {
+  #page-explore { padding-inline: 10px; }
+  #page-explore .profile-card { max-width: 100%; }
+  #app-dashboard-wrapper .bottom-nav { height: 58px; }
+  #app-dashboard-wrapper .nav-tab { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #app-dashboard-wrapper *,
+  .vq-dashboard * { animation: none !important; transition: none !important; }
+}
+
+
+/* Authenticated users do not need the create-profile button in the dashboard header. */
+.vq-dashboard[data-auth-state="authenticated"] #top-create-btn { display: none !important; }
+.vq-dashboard[data-auth-state="guest"] #top-create-btn { display: inline-flex !important; }

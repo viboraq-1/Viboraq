@@ -1,0 +1,83 @@
+/* ViboraQ Phase 8 — stability-first React shell */
+
+/* React owns which surface is visible. No document.querySelector() tab switching. */
+.vq-dashboard #app-dashboard-wrapper { display:flex !important; }
+.vq-dashboard[data-active-tab="explore"] #page-explore,
+.vq-dashboard[data-active-tab="chats"] #page-chats,
+.vq-dashboard[data-active-tab="vip"] #page-vip,
+.vq-dashboard[data-active-tab="profile"] #page-profile { display:block !important; }
+.vq-dashboard[data-active-tab="profile"] #page-profile { display:flex !important; }
+.vq-dashboard[data-active-tab="explore"] .nav-tab[data-vq-tab="explore"],
+.vq-dashboard[data-active-tab="chats"] .nav-tab[data-vq-tab="chats"],
+.vq-dashboard[data-active-tab="vip"] .nav-tab[data-vq-tab="vip"],
+.vq-dashboard[data-active-tab="profile"] .nav-tab[data-vq-tab="profile"] { color:var(--accent-coral); font-weight:900; }
+
+.vq-dashboard .tab-page { display:none; animation:none !important; }
+.vq-dashboard .view-content { animation:none !important; }
+.vq-dashboard[data-active-tab="explore"] #page-explore,
+.vq-dashboard[data-active-tab="chats"] #page-chats,
+.vq-dashboard[data-active-tab="vip"] #page-vip { display:block !important; }
+
+/* Guest profile/auth controls are never shown inside the authenticated dashboard. */
+.vq-dashboard[data-auth-state="authenticated"] #logged-out-view { display:none !important; }
+.vq-dashboard[data-auth-state="authenticated"] #logged-in-view { display:flex !important; }
+
+/* React-owned profile data has no dependency on DOM synchronization. */
+.vq-dashboard #profile-avatar-display { background-repeat:no-repeat; background-color:var(--card-bg); }
+
+/* Explore filtering is state-driven. */
+.vq-dashboard[data-active-filter="all"] .profile-card { display:flex; }
+.vq-dashboard[data-active-filter="coffee"] .profile-card:not([data-vq-category~="coffee"]) { display:none; }
+.vq-dashboard[data-active-filter="gym"] .profile-card:not([data-vq-category~="gym"]) { display:none; }
+.vq-dashboard[data-active-filter="gaming"] .profile-card:not([data-vq-category~="gaming"]) { display:none; }
+.vq-dashboard[data-active-filter="sports"] .profile-card:not([data-vq-category~="sports"]) { display:none; }
+.vq-dashboard[data-active-filter="all"] .cat-chip[data-vq-filter="all"],
+.vq-dashboard[data-active-filter="coffee"] .cat-chip[data-vq-filter="coffee"],
+.vq-dashboard[data-active-filter="gym"] .cat-chip[data-vq-filter="gym"],
+.vq-dashboard[data-active-filter="gaming"] .cat-chip[data-vq-filter="gaming"],
+.vq-dashboard[data-active-filter="sports"] .cat-chip[data-vq-filter="sports"] { background:var(--accent-coral); color:#fff; border-color:var(--accent-coral); }
+
+/* Remove the old heavy hover/blur/animation stack from the interactive shell. */
+.vq-dashboard header,
+.vq-dashboard .bottom-nav,
+.vq-dashboard .verified-pill { backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
+.vq-dashboard .profile-card,
+.vq-dashboard .profile-card img,
+.vq-dashboard button,
+.vq-dashboard .cat-chip,
+.vq-dashboard .nav-tab { transition:background-color .08s ease,border-color .08s ease,color .08s ease,opacity .08s ease !important; }
+.vq-dashboard .profile-card:hover,
+.vq-dashboard .profile-card:hover img { transform:none !important; }
+
+/* Stable full-viewport shell: header does not scroll with content. */
+.vq-dashboard { width:100%; height:100dvh; min-height:100dvh; overflow:hidden; }
+.vq-dashboard #app-dashboard-wrapper { height:100%; min-height:0; padding-bottom:0 !important; overflow:hidden; }
+.vq-dashboard #app-dashboard-wrapper > header { flex:0 0 auto; position:relative; top:auto; }
+.vq-dashboard #app-dashboard-wrapper > .view-content { flex:1 1 auto; min-height:0; overflow-x:hidden; overflow-y:auto; padding-bottom:96px !important; }
+
+/* Controlled responsive Explore sizing. */
+.vq-dashboard #page-explore { width:100%; max-width:1180px !important; margin-inline:auto !important; padding-inline:clamp(12px,2vw,24px) !important; }
+.vq-dashboard #page-explore .profiles-grid { width:100%; max-width:1100px; margin-inline:auto; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),320px)); justify-content:center; gap:18px; padding:18px 0 100px !important; }
+.vq-dashboard #page-explore .profile-card { width:100%; max-width:320px; justify-self:center; }
+.vq-dashboard #page-explore .card-img-box { height:auto !important; aspect-ratio:4/3; }
+
+@media (min-width:1600px) {
+  .vq-dashboard #page-explore { max-width:1280px !important; }
+  .vq-dashboard #page-explore .profiles-grid { max-width:1180px; grid-template-columns:repeat(auto-fit,minmax(270px,330px)); }
+  .vq-dashboard #page-explore .profile-card { max-width:330px; }
+}
+@media (max-width:900px) {
+  .vq-dashboard #page-explore .profiles-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .vq-dashboard #page-explore .profile-card { max-width:none; }
+  .vq-dashboard #app-dashboard-wrapper > header { padding-inline:18px !important; }
+}
+@media (max-width:600px) {
+  .vq-dashboard #page-explore { max-width:100% !important; padding-inline:10px !important; }
+  .vq-dashboard #page-explore .profiles-grid { grid-template-columns:1fr; }
+  .vq-dashboard #page-explore .profile-card { width:min(100%,380px); margin-inline:auto; }
+  .vq-dashboard #app-dashboard-wrapper > header { padding:12px 14px !important; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .vq-dashboard *, .vq-landing * { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+}

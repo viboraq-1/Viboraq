@@ -1,0 +1,88 @@
+/* ViboraQ Phase 5 - responsive, validation and interaction fixes */
+html, body, #root { width: 100%; min-width: 0; max-width: none; }
+body { overflow-x: hidden; }
+button, input, select, textarea { font: inherit; }
+button { -webkit-appearance: none; appearance: none; }
+button:disabled { opacity: .62; cursor: not-allowed !important; transform: none !important; }
+
+/* Instant, lightweight hover feedback. Avoid expensive animated all-property transitions. */
+.btn-connect, .btn-create-top, .cat-chip, .nav-tab, .vq-choice, .vq-interest-options button {
+  transition: background-color .08s ease, border-color .08s ease, color .08s ease, box-shadow .08s ease, transform .08s ease;
+}
+.btn-connect:hover:not(:disabled) { background: var(--accent-coral); border-color: var(--accent-coral); }
+.btn-connect:focus-visible, .btn-create-top:focus-visible, .vq-choice:focus-visible, .vq-interest-options button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+
+.vq-react-modal { padding: clamp(10px, 3vw, 28px); }
+.vq-react-modal__panel { width: min(640px, 100%); max-height: min(92dvh, 820px); padding: clamp(18px, 4vw, 32px); }
+.vq-react-modal__panel h2 { padding-right: 36px; font-size: clamp(21px, 4vw, 28px); line-height: 1.15; margin-bottom: 18px; }
+.vq-react-modal__backdrop { background: rgba(0,0,0,.78); }
+
+.vq-react-form { display:flex; flex-direction:column; gap:12px; }
+.vq-form-help { color:var(--text-muted); font-size:13px; line-height:1.55; margin:0 0 6px; }
+.vq-field-label { color:var(--text-muted); font-size:11px; font-weight:800; letter-spacing:.05em; }
+.vq-form-error { color:#ff334b; font-size:12px; font-weight:700; line-height:1.45; margin:2px 0; }
+.vq-secondary-btn { background:transparent !important; border:1px solid var(--border-color) !important; }
+.vq-google-btn { background:#161e33; border-color:#263352; }
+.vq-password-wrap { position:relative; width:100%; }
+.vq-password-wrap .input-txt { padding-right:50px; }
+.vq-password-toggle { position:absolute; right:10px; top:50%; transform:translateY(-50%); width:38px; height:38px; border:0; background:transparent; color:var(--text-muted); cursor:pointer; border-radius:10px; }
+.vq-password-toggle:hover { background:rgba(255,255,255,.06); color:#fff; }
+
+.vq-onboarding { display:flex; flex-direction:column; min-height:0; }
+.vq-onboarding-progress { margin-bottom:18px; }
+.vq-onboarding-progress__label { font-size:11px; color:#51aed4; font-weight:900; letter-spacing:.08em; text-transform:uppercase; margin-bottom:7px; }
+.vq-onboarding-progress__track { height:6px; border-radius:999px; overflow:hidden; background:rgba(255,255,255,.08); }
+.vq-onboarding-progress__track span { display:block; height:100%; background:linear-gradient(90deg,#ff334b,#51aed4); border-radius:inherit; transition:width .18s ease; }
+.vq-onboarding-body { min-height:280px; max-height:52dvh; overflow:auto; padding:2px 4px 4px 0; scrollbar-width:thin; }
+.vq-step { display:flex; flex-direction:column; gap:13px; }
+.vq-choice-list { display:flex; flex-direction:column; gap:10px; }
+.vq-choice { width:100%; text-align:left; padding:15px; border-radius:14px; border:1px solid var(--border-color); background:rgba(5,7,13,.62); color:#fff; font-weight:800; cursor:pointer; }
+.vq-choice:hover:not(:disabled), .vq-choice.selected { background:rgba(81,174,212,.15); border-color:#51aed4; color:#fff; }
+.vq-password-hints { display:flex; flex-direction:column; gap:4px; font-size:11px; color:#ff334b; }
+.vq-password-hints span.valid { color:#10b981; }
+.vq-confirm-step { text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px; padding:18px 0; }
+.vq-confirm-icon { width:58px; height:58px; border-radius:50%; display:grid; place-items:center; background:rgba(16,185,129,.14); border:1px solid rgba(16,185,129,.5); color:#10b981; font-size:28px; font-weight:900; }
+.vq-confirm-step h3 { font-size:22px; }
+.vq-confirm-step p { color:var(--text-muted); font-size:13px; line-height:1.55; max-width:430px; }
+.vq-confirm-summary { width:100%; display:flex; justify-content:space-between; gap:12px; padding:12px 14px; border-radius:12px; background:rgba(5,7,13,.6); color:var(--text-muted); font-size:12px; }
+.vq-selected-interests { display:flex; flex-wrap:wrap; gap:6px; min-height:8px; }
+.vq-selected-interests button { border:1px solid #51aed4; background:rgba(81,174,212,.15); color:#51aed4; padding:6px 10px; border-radius:12px; cursor:pointer; font-size:11px; font-weight:800; }
+.vq-interest-list { max-height:260px; overflow:auto; display:flex; flex-direction:column; gap:16px; padding:2px 4px 8px 0; }
+.vq-interest-category h4 { margin:0 0 8px; color:#94a3b8; font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+.vq-interest-options { display:flex; flex-wrap:wrap; gap:7px; }
+.vq-interest-options button { border:1px solid var(--border-color); background:rgba(5,7,13,.5); color:#fff; padding:8px 11px; border-radius:20px; cursor:pointer; font-size:11px; font-weight:700; }
+.vq-interest-options button:hover:not(:disabled), .vq-interest-options button.selected { border-color:#51aed4; background:rgba(81,174,212,.2); color:#51aed4; }
+.vq-photo-step { text-align:center; display:flex; flex-direction:column; align-items:center; gap:12px; }
+.vq-profile-upload { width:140px; height:170px; border:2px dashed rgba(81,174,212,.45); border-radius:20px; display:grid; place-items:center; cursor:pointer; background-color:rgba(5,7,13,.5); background-size:cover; background-position:center; }
+.vq-profile-upload:hover { border-color:#51aed4; }
+.vq-profile-upload span { font-size:34px; color:#51aed4; }
+.vq-photo-name { color:var(--text-muted); font-size:11px; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.vq-onboarding-actions { display:flex; gap:10px; margin-top:16px; padding-top:14px; border-top:1px solid var(--border-color); }
+.vq-onboarding-actions > button { flex:1; }
+.vq-textarea { min-height:110px; resize:vertical; }
+.vq-edit-photo-preview { width:90px; height:90px; border-radius:18px; background-size:cover; background-position:center; border:1px solid var(--border-color); }
+
+/* Keep the full-width behaviour from Phase 4 on every viewport. */
+.vq-landing, .vq-dashboard, #landing-wrapper, #app-dashboard-wrapper, .app-container { width:100%; max-width:none; min-width:0; }
+
+@media (max-width: 700px) {
+  header { padding:14px 18px; }
+  .categories-bar { padding-left:18px; padding-right:18px; }
+  .profiles-grid { grid-template-columns:1fr; padding-left:18px; padding-right:18px; }
+  .vq-react-modal__panel { border-radius:18px; padding:20px 16px; }
+  .vq-onboarding-body { max-height:58dvh; min-height:240px; }
+  .vq-onboarding-actions { position:sticky; bottom:0; background:linear-gradient(to top,var(--bg-card,#10131c) 70%,transparent); }
+  .bottom-nav { bottom:max(10px, env(safe-area-inset-bottom)); }
+}
+
+@media (hover:none), (pointer:coarse) {
+  .btn-connect:hover:not(:disabled), .cat-chip:hover, .profile-card:hover, .vq-choice:hover:not(:disabled), .vq-interest-options button:hover:not(:disabled) { transform:none; }
+}
+
+@media (max-width: 900px) {
+  header, .bottom-nav, .verified-pill, .vq-react-modal__panel { backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}

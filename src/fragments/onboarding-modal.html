@@ -1,0 +1,153 @@
+  <!-- ULTRA HIGH-END GLOSSY ENHANCED ONBOARDING MODAL -->
+  <div class="onboard-modal" id="onboard-modal">
+    <div class="modal-box">
+      <!-- Top Header inside Modal with Close & Progress Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+        <div id="step-indicator" style="font-size: 12px; font-weight: 800; color: #51aed4; letter-spacing: 1px; text-transform: uppercase;">Step 1 of 10</div>
+        <button type="button" data-vq-action="close-modal" style="background: rgba(255,255,255,0.08); border: none; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer;">✕</button>
+      </div>
+      <!-- Progress Bar Track -->
+      <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px; margin-bottom: 25px; overflow: hidden;">
+        <div id="modal-progress-bar" style="width: 10%; height: 100%; background: linear-gradient(90deg, #ff334b, #51aed4); border-radius: 10px; transition: width 0.3s ease;"></div>
+      </div>
+
+      <div style="overflow-y: auto; flex-grow: 1; padding-right: 5px;">
+        <!-- Step 1: Nickname -->
+        <div class="form-step active" id="fstep-1">
+          <h3 style="font-size: 26px; margin-bottom: 8px; font-weight: 900; color: #fff;">Hey! What Should I Call You?</h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 24px;">This is how you will appear to other verified activity partners.</p>
+          <div style="margin-bottom: 24px;">
+            <input type="text" class="input-txt" id="reg-nickname" placeholder="e.g. Waqas" autocomplete="off" name="random-nickname-field">
+            <span id="nickname-error" style="color: #ff334b; font-size: 12px; display: none; margin-top: 6px;">Please enter your nickname!</span>
+          </div>
+        </div>
+
+        <!-- Step 2: Birthday -->
+        <div class="form-step" id="fstep-2">
+          <h3 style="font-size: 26px; margin-bottom: 8px; font-weight: 900; color: #fff;">What is your birthday?</h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 24px;">Age must be between 14 and 70 years.</p>
+          <div style="margin-bottom: 24px;">
+            <input type="date" class="input-txt" id="reg-dob" data-vq-input="dob-guard">
+            <span id="dob-error" style="color: #ff334b; font-size: 12px; display: none; margin-top: 6px;">Please select your birthday!</span>
+          </div>
+        </div>
+
+        <!-- Step 3: Gender -->
+        <div class="form-step" id="fstep-3">
+          <h3 style="font-size: 26px; margin-bottom: 8px; font-weight: 900; color: #fff;">Select your gender</h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 24px;">Choose the identity that best describes you.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+            <button type="button" class="btn-connect gender-btn" data-vq-action="select-option" data-vq-group="gender" data-vq-value="Woman" style="background: rgba(5,7,13,0.6); text-align: left; padding: 16px; border-radius: 14px; font-weight: 700;">Woman</button>
+            <button type="button" class="btn-connect gender-btn" data-vq-action="select-option" data-vq-group="gender" data-vq-value="Man" style="background: rgba(5,7,13,0.6); text-align: left; padding: 16px; border-radius: 14px; font-weight: 700;">Man</button>
+            <span id="gender-error" style="color: #ff334b; font-size: 12px; display: none; margin-top: 6px;">Please select your gender!</span>
+          </div>
+        </div>
+
+        <!-- Step 4: City Location -->
+        <div class="form-step" id="fstep-4">
+          <h3 style="font-size: 26px; margin-bottom: 8px; font-weight: 900; color: #fff;">Where do you live?</h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 24px;">Select your city from our verified Pakistan network.</p>
+          <div style="margin-bottom: 24px;">
+            <input type="text" class="input-txt" id="reg-city" list="pak-cities" placeholder="Search or select your city..." autocomplete="off">
+            <datalist id="pak-cities">
+              <option value="Abbottabad"><option value="Ahmadpur East"><option value="Arifwala"><option value="Attock"><option value="Badin"><option value="Bahawalpur"><option value="Bannu"><option value="Batkhela"><option value="Bhalwal"><option value="Bhakkar"><option value="Bhimber"><option value="Buner"><option value="Burewala"><option value="Chaman"><option value="Chakwal"><option value="Charsadda"><option value="Chichawatni"><option value="Chilas"><option value="Chiniot"><option value="Chishtian"><option value="Chitral"><option value="Dadu"><option value="Daska"><option value="Depalpur"><option value="Dera Ghazi Khan"><option value="Dera Ismail Khan"><option value="Dera Murad Jamali"><option value="Diamer"><option value="Dunyapur"><option value="Faisalabad"><option value="Farooqabad"><option value="Ghanche"><option value="Ghotki"><option value="Gilgit"><option value="Gojra"><option value="Gujranwala"><option value="Gujrat"><option value="Gwadar"><option value="Hafizabad"><option value="Hangu"><option value="Haripur"><option value="Hasilpur"><option value="Hub"><option value="Hunza"><option value="Hyderabad"><option value="Islamabad"><option value="Jacobabad"><option value="Jalalpur Jattan"><option value="Jamshoro"><option value="Jaranwala"><option value="Jhang"><option value="Jhelum"><option value="Kambar"><option value="Kalat"><option value="Kamalia"><option value="Kamoke"><option value="Kandhkot"><option value="Karachi"><option value="Karak"><option value="Kasur"><option value="Khairpur"><option value="Khanewal"><option value="Khanpur"><option value="Kharian"><option value="Khushab"><option value="Khuzdar"><option value="Kohat"><option value="Kot Adu"><option value="Kotli"><option value="Kotri"><option value="Lahore"><option value="Lalamusa"><option value="Larkana"><option value="Layyah"><option value="Lodhran"><option value="Loralai"><option value="Mailsi"><option value="Malakand"><option value="Mandi Bahauddin"><option value="Mansehra"><option value="Mardan"><option value="Mianwali"><option value="Minchanabad"><option value="Mingora"><option value="Mirpur"><option value="Mirpur Khas"><option value="Mirpur Mathelo"><option value="Moro"><option value="Multan"><option value="Muridke"><option value="Muzaffarabad"><option value="Muzaffargarh"><option value="Nagar"><option value="Nankana Sahib"><option value="Narowal"><option value="Nawabshah"><option value="Nowshera"><option value="Nushki"><option value="Okara"><option value="Pakpattan"><option value="Panjgur"><option value="Pattoki"><option value="Peshawar"><option value="Phalia"><option value="Pirmahal"><option value="Quetta"><option value="Rahim Yar Khan"><option value="Rajanpur"><option value="Rawalakot"><option value="Rawalpindi"><option value="Renala Khurd"><option value="Sadiqabad"><option value="Sahiwal"><option value="Sakesar"><option value="Sambrial"><option value="Sanghar"><option value="Sargodha"><option value="Shabqadar"><option value="Shahdadkot"><option value="Shakargarh"><option value="Sheikhupura"><option value="Shikarpur"><option value="Shorkot"><option value="Sialkot"><option value="Sibi"><option value="Skardu"><option value="Sukkur"><option value="Swabi"><option value="Swat"><option value="Tando Adam"><option value="Tando Allahyar"><option value="Tando Muhammad Khan"><option value="Thatta"><option value="Timergara"><option value="Toba Tek Singh"><option value="Turbat"><option value="Umerkot"><option value="Vihari"><option value="Wah Cantonment"><option value="Wazirabad"><option value="Zhob">
+            </datalist>
+            <span id="city-error" style="color: #ff334b; font-size: 12px; display: none; margin-top: 6px;">Please select or enter your city!</span>
+          </div>
+        </div>
+
+        <!-- Step 5: Meet Preference -->
+        <div class="form-step" id="fstep-5">
+          <h3 style="font-size: 26px; margin-bottom: 8px; font-weight: 900; color: #fff;">Who do you want to meet?</h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 24px;">Tailor your feed according to your preferences.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+            <button type="button" class="btn-connect meet-btn" data-vq-action="select-option" data-vq-group="meet" data-vq-value="Women" style="background: rgba(5,7,13,0.6); text-align: left; padding: 16px; border-radius: 14px; font-weight: 700;">Women Partners</button>
+            <button type="button" class="btn-connect meet-btn" data-vq-action="select-option" data-vq-group="meet" data-vq-value="Men" style="background: rgba(5,7,13,0.6); text-align: left; padding: 16px; border-radius: 14px; font-weight: 700;">Men Partners</button>
+            <button type="button" class="btn-connect meet-btn" data-vq-action="select-option" data-vq-group="meet" data-vq-value="Everyone" style="background: rgba(5,7,13,0.6); text-align: left; padding: 16px; border-radius: 14px; font-weight: 700;">Everyone</button>
+            <span id="meet-error" style="color: #ff334b; font-size: 12px; display: none; margin-top: 6px;">Please select your preference!</span>
+          </div>
+        </div>
+
+        <!-- Step 6: Friendship Scope -->
+        <div class="form-step" id="fstep-6">
+          <h3 style="font-size: 26px; margin-bottom: 8px; font-weight: 900; color: #fff;">Friendship scope</h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 24px;">Choose how far your connection radius extends.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+            <button type="button" class="btn-connect friend-btn" data-vq-action="select-option" data-vq-group="friend" data-vq-value="Only from my country" style="background: rgba(5,7,13,0.6); text-align: left; padding: 16px; border-radius: 14px; font-weight: 700;">Only from my city</button>
+            <button type="button" class="btn-connect friend-btn" data-vq-action="select-option" data-vq-group="friend" data-vq-value="Worldwide" style="background: rgba(5,7,13,0.6); text-align: left; padding: 16px; border-radius: 14px; font-weight: 700;">All Pakistan Network</button>
+            <span id="friend-error" style="color: #ff334b; font-size: 12px; display: none; margin-top: 6px;">Please select friend scope!</span>
+          </div>
+        </div>
+
+        <!-- Step 7: Credentials -->
+        <div class="form-step" id="fstep-7">
+          <h3 style="font-size: 26px; margin-bottom: 8px; font-weight: 900; color: #fff;">Secure your account</h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 20px;">Provide your email and a strong password.</p>
+          <div style="margin-bottom: 20px;">
+           <input type="text" autocomplete="off" name="no-autofill-email" class="input-txt" id="reg-contact" placeholder="name@example.com" style="margin-bottom: 12px; width: 100%;">
+           
+           <div style="position: relative; margin-bottom: 10px;">
+             <input type="password" class="input-txt" id="reg-password" placeholder="Secure password" data-vq-input="password" style="padding-right: 45px;">
+             <span data-vq-action="toggle-password" style="position: absolute; right: 16px; top: 18px; cursor: pointer; font-size: 16px; color: var(--text-muted);">👁️</span>
+           </div>
+
+           <div id="password-hints" style="font-size: 11px; color: var(--text-muted); display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px;">
+             <span id="hint-len" style="color: #ff334b;">✗ Length: 6 to 12 characters</span>
+             <span id="hint-upper" style="color: #ff334b;">✗ At least one Uppercase letter (A-Z)</span>
+             <span id="hint-lower" style="color: #ff334b;">✗ At least one Lowercase letter (a-z)</span>
+             <span id="hint-num" style="color: #ff334b;">✗ At least one Number (0-9)</span>
+             <span id="hint-sym" style="color: #ff334b;">✗ At least one Symbol (!@#$%^&*)</span>
+           </div>
+
+           <span id="contact-error" style="color: #ff334b; font-size: 12px; display: none; margin-top: 4px;">Please enter a valid email & secure password!</span>
+          </div>
+        </div>
+
+        <!-- Step 8: Secured Confirmation -->
+        <div class="form-step" id="fstep-8">
+          <h3 style="font-size: 26px; margin-bottom: 8px; font-weight: 900; color: #fff;">Credentials Verified</h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 20px;">Your account authentication is secured. Proceed to select your passions.</p>
+        </div>
+
+        <!-- Step 9: Interests -->
+        <div class="form-step" id="fstep-9">
+          <h3 style="font-size: 26px; margin-bottom: 8px; font-weight: 900; color: #fff;">Select your passions</h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 15px;">
+            Choose exactly 10 interests (<span id="interest-count" style="color: #ff334b; font-weight: bold;">0</span>/10)
+          </p>
+          
+          <div id="search-tags-box" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; background: rgba(5,7,13,0.8); border: 2px solid var(--border-color); border-radius: 16px; padding: 10px; margin-bottom: 15px; min-height: 50px; cursor: text;" data-vq-action="focus-interest-search">
+            <div id="selected-tags-container" style="display: flex; flex-wrap: wrap; gap: 6px;"></div>
+            <input type="text" id="interest-search" placeholder="Search interests..." style="background: transparent; border: none; outline: none; color: #fff; font-size: 14px; flex-grow: 1; min-width: 120px;" data-vq-input="filter-interests">
+          </div>
+          
+          <div style="max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; margin-bottom: 15px; padding-right: 5px;" id="interests-container"></div>
+          
+          <span id="interests-error" style="color: #ff334b; font-size: 12px; display: none; margin-top: 6px;">Please select exactly 10 interests!</span>
+        </div>
+
+        <!-- Step 10: Profile Picture -->
+        <div class="form-step" id="fstep-10">
+          <h3 style="font-size: 26px; margin-bottom: 8px; font-weight: 900; text-align: center; color: #fff;">Upload profile photo</h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 24px; text-align: center;">Ensure your face is clearly visible for elite verification.</p>
+          
+          <input type="file" id="profile-file-input" accept="image/*" style="display: none;" data-vq-change="profile-photo">
+          
+          <div id="profile-box" style="width: 130px; height: 160px; border: 2px dashed rgba(81,174,212,0.4); border-radius: 20px; margin: 0 auto; display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative; overflow: hidden; background-size: cover; background-position: center; background-color: rgba(5,7,13,0.5); transition: border-color 0.2s;" data-vq-action="pick-profile-photo">
+            <span id="profile-plus-icon" style="font-size: 32px; color: #51aed4;">+</span>
+          </div>
+          
+          <span id="profile-error" style="color: #ff334b; font-size: 12px; display: none; text-align: center; margin-top: 8px;">Please upload a profile picture!</span>
+        </div>
+
+      </div>
+
+      <!-- Footer Buttons -->
+      <div style="display: flex; gap: 12px; width: 100%; margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color);">
+        <button type="button" data-vq-action="onboarding-back" class="btn-connect" style="flex: 1; background: transparent; border: 1px solid var(--border-color); color: #fff; padding: 14px; border-radius: 14px; cursor: pointer;">Back</button>
+        <button type="button" data-vq-action="onboarding-next" class="btn-connect" style="flex: 1; background: linear-gradient(135deg, #ff334b, #e11d48); border: none; color: #fff; padding: 14px; border-radius: 14px; cursor: pointer; font-weight: 800; box-shadow: 0 4px 15px rgba(255,51,75,0.4);">Continue</button>
+      </div>
+
+    </div>
+  </div>
+

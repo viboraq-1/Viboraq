@@ -1,0 +1,56 @@
+  <!-- Advanced Edit Profile Modal -->
+  <div class="edit-profile-modal" id="edit-profile-modal">
+    <button type="button" data-vq-action="close-modal" style="position: absolute; top: 20px; right: 25px; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer;">✕</button>
+    
+    <div class="modal-box" style="max-height: 90vh;">
+      <h3 style="font-size: 24px; margin-bottom: 15px; font-weight: 900; color: #fff;">Edit Profile Settings</h3>
+      
+      <div style="display: flex; flex-direction: column; gap: 14px; overflow-y: auto; flex-grow: 1; padding-right: 5px;">
+        <div>
+          <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px; font-weight: 700;">DISPLAY NICKNAME</label>
+          <input type="text" class="input-txt" id="edit-nickname" placeholder="Enter nickname">
+        </div>
+
+        <div>
+          <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px; font-weight: 700;">CITY LOCATION</label>
+          <input type="text" class="input-txt" id="edit-city" list="pak-cities" placeholder="Select city">
+        </div>
+
+        <div>
+          <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px; font-weight: 700;">ABOUT ME / BIO</label>
+          <textarea class="input-txt" id="edit-bio" rows="2" placeholder="Write your elite vibe status..." style="resize: none; padding: 12px 16px;"></textarea>
+        </div>
+
+        <div>
+          <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px; font-weight: 700;">MEETING PREFERENCE</label>
+          <select class="input-txt" id="edit-meet" style="padding: 12px 16px;">
+            <option value="Women">Women</option>
+            <option value="Men">Men</option>
+            <option value="Everyone">Everyone</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px; font-weight: 700;">FRIENDSHIP SCOPE</label>
+          <select class="input-txt" id="edit-friend" style="padding: 12px 16px;">
+            <option value="Only from my country">Only from my city</option>
+            <option value="Worldwide">All Pakistan Network</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px; font-weight: 700;">UPDATE AVATAR</label>
+          <input type="file" id="edit-file-input" accept="image/*" style="display: none;" data-vq-change="edit-photo">
+          <div id="edit-profile-box" style="width: 70px; height: 90px; border: 2px dashed var(--border-color); border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; background-size: cover; background-position: center;" data-vq-action="pick-edit-photo">
+            <span style="font-size: 18px; color: var(--text-muted);">📷</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; width: 100%; margin-top: 15px; padding-top: 12px; border-top: 1px solid var(--border-color);">
+        <button type="button" data-vq-action="close-modal" class="btn-connect" style="flex: 1; background: transparent; border: 1px solid var(--border-color); color: #fff; padding: 12px; border-radius: 12px; cursor: pointer;">Cancel</button>
+        <button type="button" data-vq-action="save-profile" class="btn-connect" style="flex: 1; background: var(--accent-coral); border: none; color: #fff; padding: 12px; border-radius: 12px; cursor: pointer; font-weight: 800;">Save Changes</button>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,89 @@
+/* ViboraQ Phase 6 - performance + true responsive layout */
+:root { --vq-content-max: 1440px; --vq-gutter: clamp(14px, 3vw, 48px); }
+
+/* Avoid expensive full-page compositing/filters. Keep visuals crisp and responsive. */
+.ambient-glow { pointer-events:none; }
+header { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: rgba(5,7,13,.96) !important; }
+.vq-react-modal__backdrop { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: rgba(0,0,0,.82) !important; }
+.verified-pill, .custom-toast { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+
+/* Do not animate layout-heavy properties. */
+.view-content { animation: none !important; }
+.btn-create-top, .cat-chip, .profile-card, .btn-connect, .vq-choice, .vq-interest-options button,
+.profile-card .card-img-box img { transition-duration: .08s !important; }
+.profile-card:hover { transform: none !important; box-shadow: 0 10px 30px rgba(0,0,0,.3) !important; }
+.profile-card:hover .card-img-box img { transform: none !important; }
+
+/* Desktop dashboard is centered instead of stretching cards across very wide displays. */
+#app-dashboard-wrapper { width: 100%; min-width: 0; }
+#app-dashboard-wrapper > header { width: 100%; padding-inline: max(var(--vq-gutter), calc((100vw - var(--vq-content-max)) / 2)); }
+#app-dashboard-wrapper .view-content { width: 100%; max-width: var(--vq-content-max); margin-inline: auto; }
+
+/* Explore controls and cards use one shared readable content width. */
+#page-explore { width: 100%; max-width: var(--vq-content-max); margin-inline: auto; }
+#page-explore #live-count-badge { margin: 20px var(--vq-gutter) 0 !important; }
+.categories-bar { padding-inline: var(--vq-gutter) !important; }
+.profiles-grid {
+  width: 100%;
+  max-width: var(--vq-content-max);
+  margin-inline: auto;
+  padding: 24px var(--vq-gutter) 120px !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(14px, 1.8vw, 24px);
+}
+.profile-card { min-width: 0; }
+.card-img-box { aspect-ratio: 4 / 3; height: auto !important; min-height: 180px; max-height: 300px; }
+.card-img-box img { display: block; }
+
+/* Other dashboard pages should not use fixed 80px side padding. */
+#page-chats, #page-vip { padding-left: var(--vq-gutter) !important; padding-right: var(--vq-gutter) !important; }
+#page-profile.active-page { padding-inline: var(--vq-gutter) !important; }
+
+/* Keep the main shell inside the viewport on every device. */
+html, body, #root, .vq-dashboard, #app-dashboard-wrapper { max-width: 100%; overflow-x: clip; }
+*, *::before, *::after { box-sizing: border-box; }
+img, video, canvas, svg { max-width: 100%; height: auto; }
+
+/* Touch devices: remove hover work entirely. */
+@media (hover: none), (pointer: coarse) {
+  .profile-card:hover { border-color: var(--border-color) !important; }
+  .btn-create-top:hover, .btn-connect:hover, .cat-chip:hover { transform: none !important; box-shadow: none !important; }
+}
+
+@media (max-width: 900px) {
+  :root { --vq-gutter: 18px; }
+  header { padding-block: 14px !important; }
+  .brand { font-size: 18px !important; }
+  .brand-badge { display: none; }
+  .profiles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card-img-box { min-height: 150px; }
+  #page-chats, #page-vip { padding-top: 28px !important; }
+}
+
+@media (max-width: 600px) {
+  :root { --vq-gutter: 14px; }
+  header { padding-inline: var(--vq-gutter) !important; }
+  .btn-create-top { padding: 8px 13px; }
+  .categories-bar { gap: 7px; padding-top: 14px !important; }
+  .cat-chip { padding: 8px 13px; font-size: 11px; }
+  .profiles-grid { grid-template-columns: 1fr; padding-top: 16px !important; padding-bottom: 100px !important; }
+  .card-img-box { min-height: 210px; max-height: none; }
+  .card-body { padding: 14px !important; }
+  #page-chats, #page-vip { padding-top: 20px !important; padding-bottom: 100px !important; }
+}
+
+@media (min-width: 1800px) {
+  :root { --vq-content-max: 1500px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Runtime visibility without layout scripting. */
+#landing-wrapper[hidden], #app-dashboard-wrapper[hidden], .tab-page[hidden] { display: none !important; }
+
+#root[data-vq-view="landing"] #app-dashboard-wrapper { display: none !important; }
+#root[data-vq-view="landing"] #landing-wrapper { display: block !important; }
+#root[data-vq-view="dashboard"] #landing-wrapper { display: none !important; }
+#root[data-vq-view="dashboard"] #app-dashboard-wrapper { display: flex !important; }

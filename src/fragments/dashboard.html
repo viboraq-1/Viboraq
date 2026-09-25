@@ -1,0 +1,240 @@
+  <!-- APP DASHBOARD WRAPPER (Your Complete Original 1700+ Lines Code) -->
+  <div id="app-dashboard-wrapper">
+    <header>
+      <div class="brand">
+        <span class="brand-icon">✦</span> Viboraq
+        <span class="brand-badge">PAKISTAN</span>
+      </div>
+      <button class="btn-create-top" id="top-create-btn" data-vq-action="open-onboarding">
+        <span>+ Create Profile</span>
+      </button>
+    </header>
+
+    <div class="view-content">
+      <!-- EXPLORE TAB -->
+      <div class="tab-page active-page" id="page-explore">
+        <!-- Live Vibe Radar Widget -->
+        <div id="live-count-badge" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); color: var(--accent-blue); padding: 8px 14px; border-radius: 12px; font-size: 11px; font-weight: 800; margin: 20px 80px 0;">
+          ⚡ Fetching Live Count...
+        </div>
+        <div class="categories-bar">
+          <div class="cat-chip active" data-vq-action="filter-feed" data-vq-filter="all">🔥 All Partners</div>
+          <div class="cat-chip" data-vq-action="filter-feed" data-vq-filter="coffee">☕ Coffee & Dine</div>
+          <div class="cat-chip" data-vq-action="filter-feed" data-vq-filter="gym">💪 Gym / Fitness</div>
+          <div class="cat-chip" data-vq-action="filter-feed" data-vq-filter="gaming">🎮 Gaming & Esports</div>
+          <div class="cat-chip" data-vq-action="filter-feed" data-vq-filter="sports">🏸 Sports & Action</div>
+        </div>
+
+        <div class="profiles-grid" id="feed-container">
+          <div class="profile-card" data-vq-category="coffee study art">
+            <div class="card-img-box">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Partner">
+              <div class="online-indicator"></div>
+              <div class="verified-pill">⚡ Verified Elite</div>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Areeba, 23</div>
+              <div class="card-city">📍 Lahore, DHA Phase 5</div>
+              <div class="tags-row"><span class="micro-tag">#Coffee</span><span class="micro-tag">#Study</span><span class="micro-tag">#Art</span></div>
+              <button class="btn-connect" data-vq-action="open-chat" data-vq-person="Areeba">Connect Vibe</button>
+            </div>
+          </div>
+
+          <div class="profile-card" data-vq-category="gym gaming tech">
+            <div class="card-img-box">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" alt="Partner">
+              <div class="online-indicator"></div>
+              <div class="verified-pill">⚡ Verified Elite</div>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Hamza, 26</div>
+              <div class="card-city">📍 Lahore, Gulberg III</div>
+              <div class="tags-row"><span class="micro-tag">#Gym</span><span class="micro-tag">#PlayStation</span><span class="micro-tag">#Tech</span></div>
+              <button class="btn-connect" data-vq-action="open-chat" data-vq-person="Hamza">Connect Vibe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHATS TAB -->
+      <div class="tab-page" id="page-chats" style="padding: 40px 80px;">
+        <div class="agency-heading-box">
+          <h3 style="font-size: 24px; font-weight: 900; letter-spacing: -0.5px;">Secure Messages</h3>
+          <p style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">End-to-end encrypted partner connections.</p>
+        </div>
+        <div class="empty-state-box" style="text-align: center; margin-top: 60px;">
+          <div style="font-size: 36px; margin-bottom: 12px;">💬</div>
+          <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">No conversations initiated</div>
+          <p style="color: var(--text-muted); font-size: 13px;">Explore profiles and click 'Connect Vibe' to start chatting.</p>
+        </div>
+      </div>
+
+      <!-- VIP TAB -->
+      <div class="tab-page" id="page-vip" style="padding: 40px 80px; text-align: center;">
+        <div style="max-width: 480px; margin: 0 auto;">
+          <span class="vip-pill-icon">VIP ELITE CLUB</span>
+          <h2 style="font-size: 28px; font-weight: 900; margin-top: 10px; letter-spacing: -0.5px;">Unlock Unlimited Access</h2>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">Get priority placement, unlimited partner requests, and zero restrictions across Pakistan.</p>
+          
+          <div style="background: var(--card-bg); padding: 32px; border-radius: 24px; border: 1px solid rgba(250, 204, 21, 0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+            <div style="font-size: 32px; font-weight: 900; color: var(--accent-yellow); margin-bottom: 6px;">Rs. 1,500 <span style="font-size: 13px; color: var(--text-muted); font-weight: 400;">/ lifetime</span></div>
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 20px;">Easily pay via JazzCash / EasyPaisa / Bank Transfer and submit TID below.</p>
+            <input type="text" class="input-txt" id="vip-tid" placeholder="Enter 12-digit Transaction ID (TID)" style="margin-bottom: 14px;">
+            <button class="btn-connect" data-vq-action="vip-payment" style="background: var(--accent-yellow); color: #000; font-weight: 900; padding: 14px; border: none;">Activate VIP Status</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE TAB -->
+      <div class="tab-page" id="page-profile">
+        <div id="logged-out-view" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; width: 100%;">
+          <div class="auth-avatar-vibe">
+            <svg viewBox="0 0 100 100" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="vibeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ff334b"/>
+                  <stop offset="50%" stop-color="#8b5cf6"/>
+                  <stop offset="100%" stop-color="#06b6d4"/>
+                </linearGradient>
+              </defs>
+              <circle cx="38" cy="38" r="16" fill="url(#vibeGrad)" opacity="0.9"/>
+              <path d="M18 78c0-12 9.5-22 21-22s21 10 21 22" stroke="url(#vibeGrad)" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="62" cy="42" r="13" stroke="#fbbf24" stroke-width="4"/>
+              <path d="M52 78c0-8 7-15 17-15s17 7 17 15" stroke="#fbbf24" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+              <circle cx="50" cy="50" r="4" fill="#fff"/>
+            </svg>
+          </div>
+
+          <h2 style="font-size: 32px; font-weight: 900; margin-bottom: 10px; letter-spacing: -0.5px;">Welcome to Viboraq</h2>
+          <p style="color: var(--text-muted); margin-bottom: 32px; font-size: 14px; max-width: 400px;">Connect with verified activity partners across Lahore and major cities of Pakistan.</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 14px; width: 100%; max-width: 320px;">
+            <button class="btn-connect" data-vq-action="open-login" style="background: var(--accent-coral); border-color: var(--accent-coral); padding: 14px; font-size: 14px; font-weight: 800;">Log In to Account</button>
+            <button class="btn-connect" data-vq-action="open-onboarding" style="padding: 14px; font-size: 14px; font-weight: 800;">Register New Profile</button>
+            
+            <div style="display: flex; align-items: center; gap: 12px; margin: 6px 0;">
+              <div style="flex: 1; height: 1px; background: var(--border-color);"></div>
+              <span style="font-size: 10px; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">OR SECURE SIGN IN</span>
+              <div style="flex: 1; height: 1px; background: var(--border-color);"></div>
+            </div>
+
+            <button class="btn-connect social-btn" data-vq-action="social-login" data-vq-provider="Google">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.95H1.19v3.15C3.17 21.36 7.23 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.25c-.25-.72-.38-1.49-.38-2.25s.13-1.53.38-2.25V6.6H1.19C.43 8.13 0 9.87 0 12s.43 3.87 1.19 5.4l4.09-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.23 0 3.17 2.64 1.19 6.6l4.09 3.15c.95-2.84 3.6-4.95 6.72-4.95z"/></svg>
+              Continue with Google
+            </button>
+
+            <button class="btn-connect social-btn" data-vq-action="social-login" data-vq-provider="Phone" style="background: var(--card-bg); color: #fff; border: 1px solid var(--border-color);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              Continue with Phone Number
+            </button>
+          </div>
+        </div>
+
+        <!-- Logged In High-End Professional Dashboard View -->
+        <div id="logged-in-view" style="display: none; flex-direction: column; align-items: center; width: 100%; max-width: 640px; margin: 0 auto; padding: 20px;">
+          
+          <div style="background: linear-gradient(135deg, rgba(14, 19, 34, 0.98), rgba(22, 30, 51, 0.98)); border: 1px solid rgba(255, 51, 75, 0.4); border-radius: 24px; padding: 35px; width: 100%; text-align: center; margin-bottom: 24px; box-shadow: 0 25px 50px rgba(0,0,0,0.6); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--accent-coral), var(--accent-yellow), var(--accent-blue));"></div>
+            
+            <div id="profile-avatar-display" style="{{PROFILE_AVATAR_STYLE}}width: 110px; height: 110px; border-radius: 50%; background-size: cover; background-position: center; border: 3px solid var(--accent-coral); margin: 0 auto 16px; box-shadow: 0 0 30px rgba(255,51,75,0.5);"></div>
+            <h2 id="profile-name-display" style="font-size: 26px; font-weight: 900; margin-bottom: 4px; color: #fff;">{{PROFILE_NAME}}</h2>
+            <p id="profile-email-display" style="color: var(--text-muted); font-size: 13px; margin-bottom: 10px;">{{PROFILE_EMAIL}}</p>
+            <span style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: #10b981; font-size: 11px; font-weight: 800; padding: 5px 14px; border-radius: 20px; display: inline-block;">🛡️ Elite Verified Account</span>
+            <p id="profile-bio-display" style="color: var(--accent-yellow); font-size: 13px; font-style: italic; margin-top: 14px;">"Building digital frontiers with elite vibes."</p>
+          </div>
+
+          <div class="prof-card-box">
+            <div style="font-size: 15px; font-weight: 900; margin-bottom: 16px; color: #fff; display: flex; align-items: center; gap: 10px;">
+              <span>🔒</span> Account Credentials & Security
+            </div>
+            <div class="prof-row">
+              <span style="color: var(--text-muted);">Registered Email</span>
+              <span id="setting-email-val" style="font-weight: 700; color: var(--accent-blue);">{{PROFILE_EMAIL}}</span>
+            </div>
+            <div class="prof-row">
+              <span style="color: var(--text-muted);">Phone Number</span>
+              <button class="action-link-btn" data-vq-action="open-sub" data-vq-feature="phone">Manage Phone</button>
+            </div>
+            <div class="prof-row">
+              <span style="color: var(--text-muted);">Password Protection</span>
+              <button class="action-link-btn" data-vq-action="open-sub" data-vq-feature="password">Change Password</button>
+            </div>
+            <div class="prof-row">
+              <span style="color: var(--text-muted);">Two-Factor Auth (2FA)</span>
+              <button class="action-link-btn" data-vq-action="open-sub" data-vq-feature="2fa">Configure 2FA</button>
+            </div>
+          </div>
+
+          <div class="prof-card-box">
+            <div style="font-size: 15px; font-weight: 900; margin-bottom: 16px; color: #fff; display: flex; align-items: center; gap: 10px;">
+              <span>⚙️</span> Match & Location Preferences
+            </div>
+            <div class="prof-row">
+              <span style="color: var(--text-muted);">Current City</span>
+              <span id="prof-city-val" style="font-weight: 700;">{{PROFILE_CITY}}</span>
+            </div>
+            <div class="prof-row">
+              <span style="color: var(--text-muted);">Meeting Preference</span>
+              <span id="prof-meet-val" style="font-weight: 700;">{{PROFILE_MEET}}</span>
+            </div>
+            <div class="prof-row">
+              <span style="color: var(--text-muted);">Network Scope</span>
+              <span id="prof-friend-val" style="font-weight: 700;">{{PROFILE_FRIEND}}</span>
+            </div>
+            <div class="prof-row">
+              <span style="color: var(--text-muted);">Blocked Users Management</span>
+              <button class="action-link-btn" data-vq-action="open-sub" data-vq-feature="blocked">View Blocked List</button>
+            </div>
+          </div>
+
+          <div class="prof-card-box">
+            <div style="font-size: 15px; font-weight: 900; margin-bottom: 16px; color: #fff; display: flex; align-items: center; gap: 10px;">
+              <span>👁️</span> Privacy & Feed Controls
+            </div>
+            <div class="prof-row">
+              <span>Show Profile in Public Explore</span>
+              <input type="checkbox" checked style="accent-color: var(--accent-coral); width: 18px; height: 18px; cursor: pointer;">
+            </div>
+            <div class="prof-row">
+              <span>Encrypted Chat Alerts</span>
+              <input type="checkbox" checked style="accent-color: var(--accent-coral); width: 18px; height: 18px; cursor: pointer;">
+            </div>
+            <div class="prof-row">
+              <span>Dark Obsidian Theme Vibe</span>
+              <input type="checkbox" checked style="accent-color: var(--accent-coral); width: 18px; height: 18px; cursor: pointer;">
+            </div>
+            <div class="prof-row">
+              <span>Ghost Mode (Hide from Explore)</span>
+              <input type="checkbox" id="ghost-mode-toggle" data-vq-change="ghost-mode" style="accent-color: var(--accent-coral); width: 18px; height: 18px; cursor: pointer;">
+            </div>
+            <div class="prof-row">
+              <span style="color: var(--text-muted);">Account Activity & Logs</span>
+              <button class="action-link-btn" data-vq-action="open-sub" data-vq-feature="logs">View Logs</button>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 14px; width: 100%; margin-top: 10px;">
+            <button class="btn-connect" data-vq-action="open-edit" style="flex: 1; background: transparent; border: 1px solid var(--border-color); padding: 15px; font-weight: 700;">Edit Profile</button>
+            <button class="btn-connect" data-vq-action="logout" style="flex: 1; background: var(--accent-coral); border: none; padding: 15px; font-weight: 800;">Secure Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-nav">
+      <div class="nav-tab active" data-vq-action="switch-tab" data-vq-tab="explore">
+        <span>Explore</span>
+      </div>
+      <div class="nav-tab" data-vq-action="switch-tab" data-vq-tab="chats">
+        <span>Chats</span>
+      </div>
+      <div class="nav-tab" data-vq-action="switch-tab" data-vq-tab="vip">
+        <span>Upgrade VIP</span>
+      </div>
+      <div class="nav-tab" data-vq-action="switch-tab" data-vq-tab="profile">
+        <span>Profile</span>
+      </div>
+    </div>
+  </div>
+
