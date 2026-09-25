@@ -1,30 +1,15 @@
-# ViboraQ React — Phase 14 Mobile App UI
+# ViboraQ — Phase 15
 
-This phase converts the product presentation from a desktop website layout into a mobile-first app experience.
+Adaptive product UI: desktop behaves like a polished full-width dating website; phones behave like a mobile-first dating app.
 
 ## Run
-
-```bash
 npm install
 npm run dev
-```
 
-## Mobile-app direction
-- Full-height mobile-first shell
-- App-style sticky top bar
-- Single scroll surface
-- Compact profile cards
-- Bottom tab navigation
-- Bottom-sheet authentication/onboarding modals
-- Touch-friendly controls
-- Responsive up to tablets/desktops/large screens
-- PWA manifest metadata included
+## Design goals
+- Desktop: full-width cinematic landing page, centered content system, web-app dashboard, desktop auth dialog.
+- Tablet: adaptive two-column discovery and fluid sections.
+- Mobile: full-screen app shell, bottom navigation, touch-first controls and bottom-sheet auth.
+- Large displays: controlled max-width content so cards do not become oversized.
 
-## Preserved
-- Supabase auth/services
-- Existing onboarding flow and validation logic
-- Existing modal components/features
-- `legacy-original.html` backup
-
-## Note
-The design uses demo photography and placeholder community stories. Replace those with licensed assets and verified member reviews before launch.
+Original `legacy-original.html` is retained as a backup.
