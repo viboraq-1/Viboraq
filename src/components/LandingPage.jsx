@@ -30,7 +30,7 @@ export default function LandingPage() {
   const login = () => openModal('login');
 
   return (
-    <main className="vq17-landing">
+    <main className="vq17-landing vq18-landing">
       <div className="vq17-backdrop" aria-hidden="true" />
       <header className="vq17-nav">
         <button className="vq17-brand" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
@@ -40,7 +40,7 @@ export default function LandingPage() {
         <div className="vq17-nav-actions"><button className="vq17-login" onClick={login}>Sign in</button><button className="vq17-join" onClick={join}>Join free <b>↗</b></button></div>
       </header>
 
-      <section className="vq17-hero">
+      <section className="vq17-hero vq18-hero">
         <div className="vq17-hero-copy">
           <div className="vq17-kicker"><i /> MADE FOR MEANINGFUL CONNECTIONS IN PAKISTAN</div>
           <h1>Some connections<br /><em>feel like they were meant to happen.</em></h1>

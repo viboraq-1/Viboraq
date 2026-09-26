@@ -12,7 +12,7 @@ const initialLocal = {
 };
 
 function ErrorText({ children }) {
-  return <p className="vq-form-error" role="alert">{children}</p>;
+  return <div className="vq18-form-error" role="alert"><span>!</span><div><b>One small check</b><p>{children}</p></div></div>;
 }
 
 export default function OnboardingModal() {
@@ -194,10 +194,10 @@ export default function OnboardingModal() {
   ];
 
   return (
-    <ReactModal name="onboarding" title={`${titles[onboardingStep - 1]} · ${onboardingStep}/${TOTAL_STEPS}`} onRequestClose={closeModal}>
+    <ReactModal name="onboarding" title={null} onRequestClose={closeModal}>
       <div className="vq-onboarding" onKeyDown={handleKeyDown}>
         <div className="vq-onboarding-progress" aria-label={`Step ${onboardingStep} of ${TOTAL_STEPS}`}>
-          <div className="vq-onboarding-progress__label">Step {onboardingStep} of {TOTAL_STEPS}</div>
+          <div className="vq18-onboarding-head"><div><span>VIBORAQ · CREATE PROFILE</span><h2>{titles[onboardingStep - 1]}</h2></div><b>{onboardingStep}/{TOTAL_STEPS}</b></div><div className="vq-onboarding-progress__label">Profile setup</div>
           <div className="vq-onboarding-progress__track"><span style={{ width: `${onboardingStep * 10}%` }} /></div>
         </div>
 
@@ -224,7 +224,7 @@ export default function OnboardingModal() {
         </div>
 
         {error && <ErrorText>{error}</ErrorText>}
-        <div className="vq-onboarding-actions"><button type="button" className="btn-connect vq-secondary-btn" onClick={goBack} disabled={loading}>{onboardingStep === 1 ? 'Cancel' : 'Back'}</button><button type="button" className="btn-connect" onClick={goNext} disabled={loading}>{loading ? 'Creating account…' : onboardingStep === TOTAL_STEPS ? 'Create Account' : 'Continue'}</button></div>
+        <div className="vq-onboarding-actions"><button type="button" className="btn-connect vq-secondary-btn" onClick={goBack} disabled={loading}>{onboardingStep === 1 ? 'Cancel' : 'Back'}</button><button type="button" className="btn-connect vq18-next-btn" onClick={goNext} disabled={loading}>{loading ? 'Creating account…' : onboardingStep === TOTAL_STEPS ? 'Create Account' : 'Continue'} <span>→</span></button></div>
       </div>
     </ReactModal>
   );
