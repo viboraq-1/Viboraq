@@ -1,24 +1,25 @@
-# ViboraQ Phase 3.8 — Reference Landing Match
+# ViboraQ Phase 3.8 — Full Landing Experience
 
-Phase 3.8 focuses the public landing page on the supplied ViboraQ visual reference.
+The landing page follows the cinematic rose/wine/glass visual language from the approved reference while extending the page into a complete dating-product landing experience.
 
-## Landing
-- Cinematic wine / crimson / rose palette matching the supplied reference direction.
-- Center-right romantic couple hero image treatment.
-- Five-item top navigation with Sign in, Join Free, appearance toggle and menu.
-- Live Radar pill with Supabase Realtime Presence count.
-- Four front profile cards: Areeba, Zain, Hira and Usama.
-- Profile cards and preview login controls open the existing Supabase auth flow.
-- Glassmorphism Welcome Back panel on the right.
-- Large Live Radar / city activity bar below the hero.
-- Responsive mobile layout with the same visual language.
-- Pearl appearance toggle retained for daytime use.
+## Sections
+- Hero with 4 profile cards and sign-in preview
+- Live Radar with Supabase Realtime Presence
+- Discover profiles
+- How it works
+- ViboraQ Stories / editorial section
+- Discover by vibe/interests
+- Safety & privacy
+- Premium membership plans
+- Member Notes / reviews preview
+- Final join CTA
+- Footer navigation, support, contact, terms and privacy
 
-## Presence
-The public landing and authenticated member experience use the same `vq38-public-radar` Presence channel. The landing tracks itself as `Unknown` so it contributes to the global connected count without inventing a city; authenticated members can contribute their profile city.
-
-## Notes
-- The reference screenshot is used as a visual design target, not as a static page image.
-- Profile/hero assets are stored locally in `public/`.
-- Supabase Presence still requires the project's Realtime configuration and production authorization rules.
-- Full production Vite build was not verified in this environment because dependency installation timed out.
+## Interaction
+- Hero profile cards open sign-in
+- Join Free / Create profile open account creation
+- Navigation scrolls to sections
+- Premium buttons open account creation
+- Footer legal/support links open in-page information modal
+- Live Radar uses connected presence rather than fabricated counts
+- Pearl appearance toggle is available from the header
