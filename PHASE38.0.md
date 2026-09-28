@@ -1,14 +1,24 @@
-# ViboraQ Phase 3.8
+# ViboraQ Phase 3.8 — Reference Landing Match
 
-## Front landing redesign
-- Reworked the public landing page around the approved cinematic/glossy reference direction.
-- Dark plum/rose glassmorphism with an optional Pearl appearance toggle.
-- Romantic couple hero imagery, four interactive profile cards, and glass sign-in preview.
-- Clicking profile cards, sign-in, Join Free, or login-preview controls opens the existing Supabase auth flow.
-- Live Radar uses Supabase Realtime Presence for the current connected-session count.
-- Added city activity presentation, Stories, Safety, discovery and premium CTA sections.
-- Responsive mobile layout keeps the cinematic landing but changes into a compact app-like flow.
+Phase 3.8 focuses the public landing page on the supplied ViboraQ visual reference.
 
-## Important
-- The city figures in the landing presentation are visual labels; only the global Live Radar count is live from Realtime Presence in this build.
-- Google/Apple buttons in the visual login preview open the existing email/password auth flow; OAuth providers are not silently enabled.
+## Landing
+- Cinematic wine / crimson / rose palette matching the supplied reference direction.
+- Center-right romantic couple hero image treatment.
+- Five-item top navigation with Sign in, Join Free, appearance toggle and menu.
+- Live Radar pill with Supabase Realtime Presence count.
+- Four front profile cards: Areeba, Zain, Hira and Usama.
+- Profile cards and preview login controls open the existing Supabase auth flow.
+- Glassmorphism Welcome Back panel on the right.
+- Large Live Radar / city activity bar below the hero.
+- Responsive mobile layout with the same visual language.
+- Pearl appearance toggle retained for daytime use.
+
+## Presence
+The public landing and authenticated member experience use the same `vq38-public-radar` Presence channel. The landing tracks itself as `Unknown` so it contributes to the global connected count without inventing a city; authenticated members can contribute their profile city.
+
+## Notes
+- The reference screenshot is used as a visual design target, not as a static page image.
+- Profile/hero assets are stored locally in `public/`.
+- Supabase Presence still requires the project's Realtime configuration and production authorization rules.
+- Full production Vite build was not verified in this environment because dependency installation timed out.

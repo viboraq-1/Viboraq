@@ -36,7 +36,7 @@ function LiveRadar({notify,city}){
  const [online,setOnline]=useState(0),[cities,setCities]=useState({Lahore:0,Islamabad:0,Karachi:0,Rawalpindi:0,Faisalabad:0,Multan:0,Peshawar:0,Gujranwala:0});
  const [status,setStatus]=useState('connecting');
  useEffect(()=>{
-   const channel=supabase.channel('vq-live-radar',{config:{presence:{key:`viewer-${Math.random().toString(36).slice(2)}`}}});
+   const channel=supabase.channel('vq38-public-radar',{config:{presence:{key:`viewer-${Math.random().toString(36).slice(2)}`}}});
    const sync=()=>{const state=channel.presenceState(); const all=Object.values(state).flat(); setOnline(all.length); const next={Lahore:0,Islamabad:0,Karachi:0,Rawalpindi:0,Faisalabad:0,Multan:0,Peshawar:0,Gujranwala:0}; all.forEach(x=>{if(x.city&&next[x.city]!==undefined)next[x.city]++});setCities(next);setStatus('live')};
    channel.on('presence',{event:'sync'},sync).on('presence',{event:'join'},sync).on('presence',{event:'leave'},sync).subscribe(async state=>{if(state==='SUBSCRIBED'){await channel.track({city:city||'Pakistan',at:new Date().toISOString()});sync()}else if(state==='CHANNEL_ERROR'||state==='TIMED_OUT')setStatus('fallback')});
    return()=>{supabase.removeChannel(channel)};
